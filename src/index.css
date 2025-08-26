@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body { @apply font-sans antialiased bg-gray-50 text-gray-900; }
+}
