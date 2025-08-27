@@ -1,5 +1,5 @@
 import { useReactTable, getCoreRowModel, flexRender, type ColumnDef } from '@tanstack/react-table'
-import { TaskRow } from '../molecules/task-row'
+import { TaskRow } from '../components/task-row'
 import type { Task } from '../../types/task'
 
 export type TaskTableProps = {

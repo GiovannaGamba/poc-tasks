@@ -1,5 +1,5 @@
 import { DashboardLayout } from '../design-system/templates/dashboard-layout'
-import { StatusTag } from '../design-system/atoms/status-tag'
+import { StatusTag } from '../design-system/components/status-tag'
 import { useParams } from '@tanstack/react-router'
 import { useTaskQuery } from '../services/tasks'
 

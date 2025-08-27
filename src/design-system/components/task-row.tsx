@@ -1,4 +1,4 @@
-import { StatusTag } from '../atoms/status-tag'
+import { StatusTag } from '../components/status-tag'
 import type { TaskRowProps } from '../../types/task'
 
 export function TaskRow({ row, onClick, className }: TaskRowProps) {

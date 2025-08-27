@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { FormField } from '../molecules/form-field'
-import { Button } from '../atoms/button'
+import { FormField } from '../components/form-field'
+import { Button } from '../components/button'
 import type { TaskStatus, TaskFormProps, TaskFormValues } from '../../types/task'
 
 export function TaskForm({ defaultValues, onSubmit, className }: TaskFormProps) {

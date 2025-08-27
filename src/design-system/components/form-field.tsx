@@ -1,5 +1,5 @@
 import { forwardRef, useId } from 'react'
-import { Input, type InputProps } from '../atoms/input'
+import { Input, type InputProps } from '../components/input'
 
 export type FormFieldProps = {
   label: string
