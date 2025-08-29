@@ -1,6 +1,9 @@
+import React from "react";
 import { Select, Button } from "../components";
 import type { Option } from "../components";
 import { ChevronDown, Search, UserCircle2 } from "lucide-react";
+import { ProfileMenu } from "./ProfileMenu";
+import { useNavigate } from "@tanstack/react-router";
 
 export type NavBarProps = {
   userName: string;
@@ -15,6 +18,20 @@ const defaultNewOptions: Option[] = [
 ];
 
 export function NavBar({ userName, onNewChange, newOptions = defaultNewOptions }: NavBarProps) {
+  const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    
+    function onDocClick(e: MouseEvent) {
+      const target = e.target as HTMLElement;
+      if (!target.closest?.("[data-profile-trigger]")) setOpen(false);
+    }
+
+    document.addEventListener("click", onDocClick);
+    return () => document.removeEventListener("click", onDocClick);
+  }, []);
+
   return (
     <header className="w-full bg-white border-b border-gray-200">
       <div className="mx-auto max-w-screen-2xl px-6 py-4 flex items-center justify-between gap-4">
@@ -39,11 +56,27 @@ export function NavBar({ userName, onNewChange, newOptions = defaultNewOptions }
             fullWidth={false}
             className="rounded-full border border-gray-300 h-12 px-4 flex items-center gap-3"
             aria-label="Perfil do usuário"
+            data-profile-trigger
+            onClick={(e) => {
+              e.stopPropagation();
+              setOpen((v) => !v);
+            }}
           >
             <Search size={18} className="text-gray-500" />
             <span className="text-gray-700">{userName}</span>
             <UserCircle2 size={28} className="text-gray-500" />
           </Button>
+          {open ? (
+            <ProfileMenu
+              name={userName}
+              email={"nome.sobrenome@contraktor.com.br"}
+              onManage={() => console.log("manage")}
+              onLogout={() => {
+                setOpen(false);
+                navigate({ to: "/" });
+              }}
+            />
+          ) : null}
         </div>
       </div>
     </header>
