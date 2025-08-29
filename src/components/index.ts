@@ -4,5 +4,6 @@ export * from "./EmailInput";
 export * from "./PasswordInput";
 export * from "./EnterpriseSelect";
 export * from "./Button";
+export * from "./Card";
 
 
