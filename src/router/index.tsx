@@ -1,27 +1,16 @@
-import {
-  createRootRoute,
-  createRoute,
-  createRouter,
-  RouterProvider,
-} from '@tanstack/react-router'
-import Dashboard from '../pages/Dashboard'
-import TaskDetail from '../pages/TaskDetail'
+import { createRootRoute, createRoute, createRouter, RouterProvider } from '@tanstack/react-router'
+import React from 'react'
+import { Login } from '../pages/Login'
 
 const rootRoute = createRootRoute()
 
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
-  component: Dashboard,
+  component: Login,
 })
 
-const taskDetailRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/tasks/$id',
-  component: TaskDetail,
-})
-
-const routeTree = rootRoute.addChildren([indexRoute, taskDetailRoute])
+const routeTree = rootRoute.addChildren([indexRoute])
 
 export const router = createRouter({ routeTree })
 
