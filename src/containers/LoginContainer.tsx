@@ -1,3 +1,4 @@
+import { useNavigate } from "@tanstack/react-router";
 import { EmailInput, PasswordInput, EnterpriseSelect, Button, Card } from "../components";
 import Logo from "../Utils/Contraktor.png";
 
@@ -7,6 +8,7 @@ const enterprises = [
 ];
 
 export function LoginContainer() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen w-full flex items-center justify-center">
       <Card>
@@ -18,7 +20,7 @@ export function LoginContainer() {
 
         <div className="flex flex-col gap-2">
           <label className="text-gray-700 font-medium">Email</label>
-          <EmailInput placeholder="rafael.ferreira@contraktor.com.br" />
+          <EmailInput placeholder="nome.sobrenome@contraktor.com.br" />
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-gray-700 font-medium">Empresa</label>
@@ -29,7 +31,14 @@ export function LoginContainer() {
           <PasswordInput placeholder="Sua senha" />
           <div className="text-right text-sm text-gray-500">Esqueceu a senha?</div>
         </div>
-          <Button variant="secondary">Login</Button>
+          <Button
+            variant="secondary"
+            onClick={() => {
+              navigate({ to: "/app" });
+            }}
+          >
+            Login
+          </Button>
         </div>
       </Card>
     </div>
