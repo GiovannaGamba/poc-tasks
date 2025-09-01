@@ -1,5 +1,5 @@
 import React from "react";
-import { Select, Button } from "../components";
+import { Select, Button, Typography } from "../components";
 import type { Option } from "../components";
 import { ChevronDown, Search, UserCircle2 } from "lucide-react";
 import { ProfileMenu } from "./ProfileMenu";
@@ -36,8 +36,8 @@ export function NavBar({ userName, onNewChange, newOptions = defaultNewOptions }
     <header className="w-full bg-white border-b border-gray-200">
       <div className="mx-auto max-w-screen-2xl px-6 py-4 flex items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-semibold">Olá, Nome</h1>
-          <p className="text-gray-500">Boas-vindas a plataforma CLM Contraktor.</p>
+          <Typography variant="h2" className="!text-2xl !font-semibold">Olá, Nome</Typography>
+          <Typography className="text-gray-500">Boas-vindas a plataforma CLM Contraktor.</Typography>
         </div>
 
         <div className="flex items-center gap-4">
@@ -63,7 +63,7 @@ export function NavBar({ userName, onNewChange, newOptions = defaultNewOptions }
             }}
           >
             <Search size={18} className="text-gray-500" />
-            <span className="text-gray-700">{userName}</span>
+            <Typography component="span" className="text-gray-700">{userName}</Typography>
             <UserCircle2 size={28} className="text-gray-500" />
           </Button>
           {open ? (

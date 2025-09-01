@@ -1,5 +1,4 @@
 import { createRootRoute, createRoute, createRouter, RouterProvider } from '@tanstack/react-router'
-import React from 'react'
 import { Login } from '../pages/Login'
 import { Dashboard } from '../pages/Dashboard'
 

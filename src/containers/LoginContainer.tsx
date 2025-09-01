@@ -1,5 +1,5 @@
 import { useNavigate } from "@tanstack/react-router";
-import { EmailInput, PasswordInput, EnterpriseSelect, Button, Card } from "../components";
+import { EmailInput, PasswordInput, EnterpriseSelect, Button, Card, Typography } from "../components";
 import Logo from "../Utils/Contraktor.png";
 
 const enterprises = [
@@ -15,21 +15,21 @@ export function LoginContainer() {
         <div className="flex flex-col gap-8">
         <div className="flex flex-col items-center gap-3">
           <img src={Logo} alt="Contraktor" className="h-30" />
-          <h1 className="text-3xl font-semibold text-center">Bem vindo de volta!</h1>
+          <Typography variant="h1" className="!text-3xl !font-semibold text-center">Bem vindo de volta!</Typography>
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-gray-700 font-medium">Email</label>
+          <Typography component="label" className="text-gray-700 font-medium">Email</Typography>
           <EmailInput placeholder="nome.sobrenome@contraktor.com.br" />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-gray-700 font-medium">Empresa</label>
+          <Typography component="label" className="text-gray-700 font-medium">Empresa</Typography>
           <EnterpriseSelect enterprises={enterprises} placeholder="Contraktor - Produto" />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-gray-700 font-medium">Senha</label>
+          <Typography component="label" className="text-gray-700 font-medium">Senha</Typography>
           <PasswordInput placeholder="Sua senha" />
-          <div className="text-right text-sm text-gray-500">Esqueceu a senha?</div>
+          <Typography className="text-right text-sm text-gray-500">Esqueceu a senha?</Typography>
         </div>
           <Button
             variant="secondary"

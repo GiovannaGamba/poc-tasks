@@ -1,9 +1,10 @@
 import { DashboardTemplate } from "../templates";
+import { Typography } from "../components";
 
 export function Dashboard() {
   return (
     <DashboardTemplate>
-      <div className="text-center text-xl text-gray-600">Content</div>
+      <Typography className="text-center text-xl text-gray-600">Content</Typography>
     </DashboardTemplate>
   );
 }

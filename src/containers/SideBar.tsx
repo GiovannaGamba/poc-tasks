@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../Utils/Contraktor.png";
-import { Button } from "../components";
+import { Button, Typography } from "../components";
 import {
   Home,
   Workflow,
@@ -54,7 +54,7 @@ function SideBarItem({ item, active, onClick }: { item: NavItem; active?: boolea
       onClick={onClick}
     >
       <Icon size={22} className={active ? "text-blue-600" : "text-gray-500"} />
-      <span className="font-medium">{item.label}</span>
+      <Typography component="span" className="font-medium">{item.label}</Typography>
     </button>
   );
 }

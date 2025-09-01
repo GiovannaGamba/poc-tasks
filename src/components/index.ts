@@ -6,4 +6,6 @@ export * from "./EnterpriseSelect";
 export * from "./Button";
 export * from "./Card";
 
+export * from "./Typhography";
+
 

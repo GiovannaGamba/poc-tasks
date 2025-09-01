@@ -1,4 +1,4 @@
-import { Card, Button } from "../components";
+import { Card, Button, Typography } from "../components";
 import { LogOut, Pencil, UserCircle2 } from "lucide-react";
 
 export type ProfileMenuProps = {
@@ -23,8 +23,8 @@ export function ProfileMenu({ name, email, onManage, onLogout }: ProfileMenuProp
               </button>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-semibold">Olá, {name.split(" ")[0]}</div>
-              <div className="text-gray-500">{email}</div>
+              <Typography variant="h2" className="!text-2xl !font-semibold">Olá, {name.split(" ")[0]}</Typography>
+              <Typography className="text-gray-500">{email}</Typography>
             </div>
             <Button
               variant="ghost"
