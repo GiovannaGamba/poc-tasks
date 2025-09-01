@@ -85,7 +85,7 @@ export function Input({
         .filter(Boolean)
         .join(" ")}
     >
-      {leftIcon ? <span className="text-gray-500">{leftIcon}</span> : null}
+      {leftIcon ? <span className="text-neutral-500">{leftIcon}</span> : null}
       <input
         id={id}
         name={name}
@@ -98,13 +98,13 @@ export function Input({
         onBlur={onBlur}
         onFocus={onFocus}
         className={[
-          "w-full bg-transparent outline-none placeholder:text-gray-400",
+          "w-full bg-transparent outline-none placeholder:text-neutral-400",
           inputClassName,
         ]
           .filter(Boolean)
           .join(" ")}
       />
-      {rightIcon ? <span className="text-gray-500">{rightIcon}</span> : null}
+      {rightIcon ? <span className="text-neutral-500">{rightIcon}</span> : null}
     </div>
   );
 }

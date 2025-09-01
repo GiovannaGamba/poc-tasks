@@ -9,7 +9,7 @@ export type AuthenticatedTemplateProps = {
 export function AuthenticatedTemplate({ children }: AuthenticatedTemplateProps) {
   const [title, setTitle] = React.useState("Início");
   return (
-    <div className="min-h-screen w-full bg-gray-50 flex">
+    <div className="min-h-screen w-full bg-neutral-50 flex">
       <SideBar onChange={(_, item) => setTitle(item.label)} />
       <div className="flex-1 flex flex-col">
         <NavBar userName="Nome Sobrenome" title={title} />

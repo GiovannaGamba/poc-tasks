@@ -18,21 +18,21 @@ export const Default: Story = {
     <AuthenticatedTemplate>
       <div className="bg-white rounded-lg shadow p-6">
         <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
-        <p className="text-gray-600">
+        <p className="text-neutral-600">
           Este é o conteúdo principal da página autenticada.
         </p>
         <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-blue-50 p-4 rounded-lg">
-            <h3 className="font-semibold text-blue-900">Card 1</h3>
-            <p className="text-blue-700 text-sm">Conteúdo do card</p>
+          <div className="bg-primary-50 p-4 rounded-lg">
+            <h3 className="font-semibold text-primary-900">Card 1</h3>
+            <p className="text-primary-700 text-sm">Conteúdo do card</p>
           </div>
-          <div className="bg-green-50 p-4 rounded-lg">
-            <h3 className="font-semibold text-green-900">Card 2</h3>
-            <p className="text-green-700 text-sm">Conteúdo do card</p>
+          <div className="bg-success-50 p-4 rounded-lg">
+            <h3 className="font-semibold text-success-900">Card 2</h3>
+            <p className="text-success-700 text-sm">Conteúdo do card</p>
           </div>
-          <div className="bg-purple-50 p-4 rounded-lg">
-            <h3 className="font-semibold text-purple-900">Card 3</h3>
-            <p className="text-purple-700 text-sm">Conteúdo do card</p>
+          <div className="bg-secondary-50 p-4 rounded-lg">
+            <h3 className="font-semibold text-secondary-900">Card 3</h3>
+            <p className="text-secondary-700 text-sm">Conteúdo do card</p>
           </div>
         </div>
       </div>

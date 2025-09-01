@@ -4,7 +4,7 @@ import { Typography } from "../components/Typography/Typhography";
 export function Authenticated() {
   return (
     <AuthenticatedTemplate>
-      <Typography className="text-center text-xl text-gray-600">Content</Typography>
+      <Typography className="text-center text-xl text-neutral-600">Content</Typography>
     </AuthenticatedTemplate>
   );
 }

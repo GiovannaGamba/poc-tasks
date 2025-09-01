@@ -46,14 +46,14 @@ function SideBarItem({ item, active, onClick }: { item: NavItem; active?: boolea
       className={[
         "w-full flex items-center gap-3 px-5 py-4 rounded-xl text-left transition-colors",
         active
-          ? "bg-blue-50 text-blue-700 border border-blue-100"
-          : "text-gray-700 hover:bg-gray-50",
+          ? "bg-primary-50 text-primary-700 border border-primary-100"
+          : "text-neutral-700 hover:bg-neutral-50",
       ]
         .filter(Boolean)
         .join(" ")}
       onClick={onClick}
     >
-      <Icon size={22} className={active ? "text-blue-600" : "text-gray-500"} />
+      <Icon size={22} className={active ? "text-primary-600" : "text-neutral-500"} />
       <Typography component="span" className="font-medium">{item.label}</Typography>
     </button>
   );

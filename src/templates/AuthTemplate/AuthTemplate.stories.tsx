@@ -19,7 +19,7 @@ export const Default: Story = {
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-white p-8 rounded-lg shadow-lg">
           <h1 className="text-2xl font-bold text-center">Conteúdo de exemplo</h1>
-          <p className="text-gray-600 text-center mt-4">
+          <p className="text-neutral-600 text-center mt-4">
             Este é um exemplo de conteúdo dentro do AuthTemplate
           </p>
         </div>

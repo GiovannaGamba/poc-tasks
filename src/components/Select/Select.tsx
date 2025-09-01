@@ -46,7 +46,7 @@ export function Select({
         .filter(Boolean)
         .join(" ")}
     >
-      {leftIcon ? <span className="text-gray-500">{leftIcon}</span> : null}
+      {leftIcon ? <span className="text-neutral-500">{leftIcon}</span> : null}
       <select
         id={id}
         name={name}

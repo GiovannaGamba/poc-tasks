@@ -19,17 +19,17 @@ export function LoginContainer() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <Typography component="label" className="text-gray-700 font-medium">Email</Typography>
+          <Typography component="label" className="text-neutral-700 font-medium">Email</Typography>
           <Input variant="email" placeholder="nome.sobrenome@contraktor.com.br" />
         </div>
         <div className="flex flex-col gap-2">
-          <Typography component="label" className="text-gray-700 font-medium">Empresa</Typography>
+          <Typography component="label" className="text-neutral-700 font-medium">Empresa</Typography>
           <Select variant="enterprise" options={enterprises} placeholder="Contraktor - Produto" />
         </div>
         <div className="flex flex-col gap-2">
-          <Typography component="label" className="text-gray-700 font-medium">Senha</Typography>
+          <Typography component="label" className="text-neutral-700 font-medium">Senha</Typography>
           <Input variant="password" placeholder="Sua senha" />
-          <Typography className="text-right text-sm text-gray-500">Esqueceu a senha?</Typography>
+          <Typography className="text-right text-sm text-neutral-500">Esqueceu a senha?</Typography>
         </div>
           <Button
             variant="secondary"

@@ -38,7 +38,7 @@ export function NavBar({ userName, title = "Olá", onNewChange, newOptions = def
       <div className="mx-auto max-w-screen-2xl px-6 py-4 flex items-center justify-between gap-4">
         <div>
           <Typography variant="h2" className="!text-2xl !font-semibold">{title}</Typography>
-          <Typography className="text-gray-500">Boas-vindas a plataforma CLM Contraktor.</Typography>
+          <Typography className="text-neutral-500">Boas-vindas a plataforma CLM Contraktor.</Typography>
         </div>
 
         <div className="flex items-center gap-4">
@@ -63,9 +63,9 @@ export function NavBar({ userName, title = "Olá", onNewChange, newOptions = def
               setOpen((v) => !v);
             }}
           >
-            <Search size={18} className="text-gray-500" />
-            <Typography component="span" className="text-gray-700">{userName}</Typography>
-            <UserCircle2 size={28} className="text-gray-500" />
+            <Search size={18} className="text-neutral-500" />
+            <Typography component="span" className="text-neutral-700">{userName}</Typography>
+            <UserCircle2 size={28} className="text-neutral-500" />
           </Button>
           {open ? (
             <ProfileMenu

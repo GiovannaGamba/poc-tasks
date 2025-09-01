@@ -8,9 +8,9 @@ export function AuthTemplate({ children }: AuthTemplateProps) {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute right-0 top-0 h-full w-[62%] min-w-[520px] bg-blue-500" />
+        <div className="absolute right-0 top-0 h-full w-[62%] min-w-[520px] bg-primary-500" />
         <svg
-          className="absolute right-0 bottom-0 h-[65%] w-[100%] text-blue-400/70"
+          className="absolute right-0 bottom-0 h-[65%] w-[100%] text-primary-400/70"
           viewBox="0 0 800 400"
           preserveAspectRatio="none"
           aria-hidden="true"
@@ -21,7 +21,7 @@ export function AuthTemplate({ children }: AuthTemplateProps) {
           />
         </svg>
         <svg
-          className="absolute right-0 bottom-0 h-[55%] w-[100%] text-blue-300/60"
+          className="absolute right-0 bottom-0 h-[55%] w-[100%] text-primary-300/60"
           viewBox="0 0 800 400"
           preserveAspectRatio="none"
           aria-hidden="true"
