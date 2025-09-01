@@ -1,7 +1,7 @@
-import { LoginTemplate } from "../templates";
+import { UnauthenticatedTemplate } from "../templates";
 
 export function Login() {
-  return <LoginTemplate />;
+  return <UnauthenticatedTemplate />;
 }
 
 export default Login;

@@ -1,7 +1,7 @@
 import { AuthTemplate } from "./AuthTemplate";
 import { LoginContainer } from "../containers";
 
-export function LoginTemplate() {
+export function UnauthenticatedTemplate() {
   return (
     <AuthTemplate>
       <LoginContainer />
@@ -9,6 +9,6 @@ export function LoginTemplate() {
   );
 }
 
-export default LoginTemplate;
+export default UnauthenticatedTemplate;
 
 

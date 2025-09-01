@@ -1,5 +1,5 @@
 export * from "./AuthTemplate";
-export * from "./LoginTemplate";
-export * from "./DashboardTemplate";
+export * from "./AnauthenticatedTemplate";
+export * from "./AuthenticatedTemplate";
 
 

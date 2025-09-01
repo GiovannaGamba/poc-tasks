@@ -1,11 +1,11 @@
 import React from "react";
 import { SideBar, NavBar } from "../containers";
 
-export type DashboardTemplateProps = {
+export type AuthenticatedTemplateProps = {
   children: React.ReactNode;
 };
 
-export function DashboardTemplate({ children }: DashboardTemplateProps) {
+export function AuthenticatedTemplate({ children }: AuthenticatedTemplateProps) {
   return (
     <div className="min-h-screen w-full bg-gray-50 flex">
       <SideBar />
@@ -19,6 +19,6 @@ export function DashboardTemplate({ children }: DashboardTemplateProps) {
   );
 }
 
-export default DashboardTemplate;
+export default AuthenticatedTemplate;
 
 
