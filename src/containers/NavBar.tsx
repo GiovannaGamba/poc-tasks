@@ -7,6 +7,7 @@ import { useNavigate } from "@tanstack/react-router";
 
 export type NavBarProps = {
   userName: string;
+  title?: string;
   onNewChange?: (value: string) => void;
   newOptions?: Option[];
 };
@@ -17,7 +18,7 @@ const defaultNewOptions: Option[] = [
   { label: "Novo modelo", value: "modelo" },
 ];
 
-export function NavBar({ userName, onNewChange, newOptions = defaultNewOptions }: NavBarProps) {
+export function NavBar({ userName, title = "Olá", onNewChange, newOptions = defaultNewOptions }: NavBarProps) {
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
 
@@ -36,7 +37,7 @@ export function NavBar({ userName, onNewChange, newOptions = defaultNewOptions }
     <header className="w-full bg-white border-b border-gray-200">
       <div className="mx-auto max-w-screen-2xl px-6 py-4 flex items-center justify-between gap-4">
         <div>
-          <Typography variant="h2" className="!text-2xl !font-semibold">Olá, Nome</Typography>
+          <Typography variant="h2" className="!text-2xl !font-semibold">{title}</Typography>
           <Typography className="text-gray-500">Boas-vindas a plataforma CLM Contraktor.</Typography>
         </div>
 
