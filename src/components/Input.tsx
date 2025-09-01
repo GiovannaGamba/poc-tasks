@@ -1,4 +1,7 @@
 import React from "react";
+import { Mail, Lock, Eye, EyeOff } from "lucide-react";
+
+export type InputVariant = "text" | "email" | "password";
 
 export type InputProps = {
   id?: string;
@@ -8,6 +11,7 @@ export type InputProps = {
   disabled?: boolean;
   readOnly?: boolean;
   type?: React.HTMLInputTypeAttribute;
+  variant?: InputVariant; // text | email | password
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
@@ -16,6 +20,7 @@ export type InputProps = {
   className?: string;
   inputClassName?: string;
   containerClassName?: string;
+  showPasswordToggle?: boolean; 
 };
 
 export function Input({
@@ -26,6 +31,7 @@ export function Input({
   disabled,
   readOnly,
   type = "text",
+  variant = "text",
   iconLeft,
   iconRight,
   onChange,
@@ -34,7 +40,40 @@ export function Input({
   className,
   inputClassName,
   containerClassName,
+  showPasswordToggle = true,
 }: InputProps) {
+  const [passwordVisible, setPasswordVisible] = React.useState(false);
+
+  const computedType: React.HTMLInputTypeAttribute = (() => {
+    if (variant === "password") return passwordVisible ? "text" : "password";
+    if (variant === "email") return "email";
+    return type ?? "text";
+  })();
+
+  const leftIcon = (() => {
+    if (iconLeft) return iconLeft;
+    if (variant === "email") return <Mail size={18} />;
+    if (variant === "password") return <Lock size={18} />;
+    return null;
+  })();
+
+  const rightIcon = (() => {
+    if (iconRight) return iconRight;
+    if (variant === "password" && showPasswordToggle) {
+      return (
+        <button
+          type="button"
+          aria-label={passwordVisible ? "Ocultar senha" : "Mostrar senha"}
+          onClick={() => setPasswordVisible((v) => !v)}
+          className="outline-none"
+        >
+          {passwordVisible ? <EyeOff size={18} /> : <Eye size={18} />}
+        </button>
+      );
+    }
+    return null;
+  })();
+
   return (
     <div
       className={[
@@ -46,7 +85,7 @@ export function Input({
         .filter(Boolean)
         .join(" ")}
     >
-      {iconLeft ? <span className="text-gray-500">{iconLeft}</span> : null}
+      {leftIcon ? <span className="text-gray-500">{leftIcon}</span> : null}
       <input
         id={id}
         name={name}
@@ -54,7 +93,7 @@ export function Input({
         placeholder={placeholder}
         disabled={disabled}
         readOnly={readOnly}
-        type={type}
+        type={computedType}
         onChange={onChange}
         onBlur={onBlur}
         onFocus={onFocus}
@@ -65,7 +104,7 @@ export function Input({
           .filter(Boolean)
           .join(" ")}
       />
-      {iconRight ? <span className="text-gray-500">{iconRight}</span> : null}
+      {rightIcon ? <span className="text-gray-500">{rightIcon}</span> : null}
     </div>
   );
 }

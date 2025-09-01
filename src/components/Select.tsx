@@ -1,6 +1,9 @@
 import React from "react";
+import { Building2 } from "lucide-react";
 
 export type Option = { label: string; value: string };
+
+export type SelectVariant = "default" | "enterprise";
 
 export type SelectProps = {
   id?: string;
@@ -14,6 +17,7 @@ export type SelectProps = {
   selectClassName?: string;
   containerClassName?: string;
   iconLeft?: React.ReactNode;
+  variant?: SelectVariant;
 };
 
 export function Select({
@@ -28,7 +32,9 @@ export function Select({
   selectClassName,
   containerClassName,
   iconLeft,
+  variant = "default",
 }: SelectProps) {
+  const leftIcon = iconLeft ?? (variant === "enterprise" ? <Building2 size={18} /> : null);
   return (
     <div
       className={[
@@ -40,7 +46,7 @@ export function Select({
         .filter(Boolean)
         .join(" ")}
     >
-      {iconLeft ? <span className="text-gray-500">{iconLeft}</span> : null}
+      {leftIcon ? <span className="text-gray-500">{leftIcon}</span> : null}
       <select
         id={id}
         name={name}

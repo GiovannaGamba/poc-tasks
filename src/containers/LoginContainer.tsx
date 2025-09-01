@@ -1,5 +1,5 @@
 import { useNavigate } from "@tanstack/react-router";
-import { EmailInput, PasswordInput, EnterpriseSelect, Button, Card, Typography } from "../components";
+import { Input, Select, Button, Card, Typography } from "../components";
 import Logo from "../Utils/Contraktor.png";
 
 const enterprises = [
@@ -20,15 +20,15 @@ export function LoginContainer() {
 
         <div className="flex flex-col gap-2">
           <Typography component="label" className="text-gray-700 font-medium">Email</Typography>
-          <EmailInput placeholder="nome.sobrenome@contraktor.com.br" />
+          <Input variant="email" placeholder="nome.sobrenome@contraktor.com.br" />
         </div>
         <div className="flex flex-col gap-2">
           <Typography component="label" className="text-gray-700 font-medium">Empresa</Typography>
-          <EnterpriseSelect enterprises={enterprises} placeholder="Contraktor - Produto" />
+          <Select variant="enterprise" options={enterprises} placeholder="Contraktor - Produto" />
         </div>
         <div className="flex flex-col gap-2">
           <Typography component="label" className="text-gray-700 font-medium">Senha</Typography>
-          <PasswordInput placeholder="Sua senha" />
+          <Input variant="password" placeholder="Sua senha" />
           <Typography className="text-right text-sm text-gray-500">Esqueceu a senha?</Typography>
         </div>
           <Button
