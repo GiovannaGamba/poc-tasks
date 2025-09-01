@@ -1,8 +1,8 @@
-export * from "./Input";
-export * from "./Select";
-export * from "./Button";
-export * from "./Card";
+export * from "./Input/Input";
+export * from "./Select/Select";
+export * from "./Button/Button";
+export * from "./Card/Card";
 
-export * from "./Typhography";
+export * from "./Typography/Typhography";
 
 

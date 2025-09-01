@@ -1,6 +1,6 @@
-export * from "./SideBar";
-export * from "./LoginContainer";
-export * from "./NavBar";
-export * from "./ProfileMenu";
+export * from "./SideBar/SideBar";
+export * from "./LoginContainer/LoginContainer";
+export * from "./NavBar/NavBar";
+export * from "./ProfileMenu/ProfileMenu";
 
 

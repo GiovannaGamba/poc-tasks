@@ -1,5 +1,5 @@
-export * from "./AuthTemplate";
-export * from "./AnauthenticatedTemplate";
-export * from "./AuthenticatedTemplate";
+export * from "./AuthTemplate/AuthTemplate";
+export * from "./UnauthenticatedTemplate/UnauthenticatedTemplate";
+export * from "./AuthenticatedTemplate/AuthenticatedTemplate";
 
 

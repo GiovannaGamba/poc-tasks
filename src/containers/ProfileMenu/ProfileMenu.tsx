@@ -1,4 +1,4 @@
-import { Card, Button, Typography } from "../components";
+import { Card, Button, Typography } from "../../components";
 import { LogOut, Pencil, UserCircle2 } from "lucide-react";
 
 export type ProfileMenuProps = {

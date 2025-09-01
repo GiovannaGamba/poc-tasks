@@ -1,5 +1,5 @@
-import { AuthTemplate } from "./AuthTemplate";
-import { LoginContainer } from "../containers";
+import { AuthTemplate } from "../AuthTemplate/AuthTemplate";
+import { LoginContainer } from "../../containers";
 
 export function UnauthenticatedTemplate() {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { typographyVariants, type TypographyVariantName } from '../styles/typhography';
+import { typographyVariants, type TypographyVariantName } from '../../styles/typhography';
 
 export type TypographyProps = React.HTMLAttributes<HTMLElement> & {
   variant?: TypographyVariantName; 

@@ -1,6 +1,6 @@
 import { useNavigate } from "@tanstack/react-router";
-import { Input, Select, Button, Card, Typography } from "../components";
-import Logo from "../Utils/Contraktor.png";
+import { Input, Select, Button, Card, Typography } from "../../components";
+import Logo from "../../Utils/Contraktor.png";
 
 const enterprises = [
   { label: "Contraktor - Produto", value: "produto" },

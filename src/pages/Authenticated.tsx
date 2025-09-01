@@ -1,5 +1,5 @@
-import { AuthenticatedTemplate } from "../templates";
-import { Typography } from "../components";
+import { AuthenticatedTemplate } from "../templates/AuthenticatedTemplate/AuthenticatedTemplate";
+import { Typography } from "../components/Typography/Typhography";
 
 export function Authenticated() {
   return (

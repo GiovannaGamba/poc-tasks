@@ -1,6 +1,6 @@
 import React from "react";
-import Logo from "../Utils/Contraktor.png";
-import { Button, Typography } from "../components";
+import Logo from "../../Utils/Contraktor.png";
+import { Button, Typography } from "../../components";
 import {
   Home,
   Workflow,

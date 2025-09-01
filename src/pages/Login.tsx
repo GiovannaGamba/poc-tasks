@@ -1,4 +1,4 @@
-import { UnauthenticatedTemplate } from "../templates";
+import { UnauthenticatedTemplate } from "../templates/UnauthenticatedTemplate/UnauthenticatedTemplate";
 
 export function Login() {
   return <UnauthenticatedTemplate />;

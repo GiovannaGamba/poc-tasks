@@ -1,5 +1,6 @@
 import React from "react";
-import { SideBar, NavBar } from "../containers";
+import { SideBar } from "../../containers/SideBar/SideBar";
+import { NavBar } from "../../containers/NavBar/NavBar";
 
 export type AuthenticatedTemplateProps = {
   children: React.ReactNode;

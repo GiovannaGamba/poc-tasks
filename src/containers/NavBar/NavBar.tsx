@@ -1,8 +1,8 @@
 import React from "react";
-import { Select, Button, Typography } from "../components";
-import type { Option } from "../components";
+import { Select, Button, Typography } from "../../components";
+import type { Option } from "../../components/Select/Select";
 import { ChevronDown, Search, UserCircle2 } from "lucide-react";
-import { ProfileMenu } from "./ProfileMenu";
+import { ProfileMenu } from "../ProfileMenu/ProfileMenu";
 import { useNavigate } from "@tanstack/react-router";
 
 export type NavBarProps = {
