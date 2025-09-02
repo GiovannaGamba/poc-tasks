@@ -79,7 +79,7 @@ const buttonStyles = {
     },
     success: {
       enabled: "bg-transparent text-success-500 focus-visible:ring-success-300",
-      hover: "bg-sucess-50 text-success-600 focus-visible:ring-success-300",
+      hover: "bg-success-50 text-success-600 focus-visible:ring-success-300",
       disabled: "bg-transparent text-neutral-300",
     },
   },
