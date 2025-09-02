@@ -1,5 +1,5 @@
 import React from "react";
-import { Select, Button, Typography } from "../../components";
+import { Select, ButtonTeste, Typography } from "../../components";
 import type { Option } from "../../components/Select/Select";
 import { ChevronDown, Search, UserCircle2 } from "lucide-react";
 import { ProfileMenu } from "../ProfileMenu/ProfileMenu";
@@ -52,21 +52,22 @@ export function NavBar({ userName, title = "Olá", onNewChange, newOptions = def
               iconLeft={<ChevronDown size={18} className="opacity-0" />}
             />
           </div>
-          <Button
-            variant="ghost"
-            fullWidth={false}
+          <ButtonTeste
+            type="primary"
+            style="ghost"
+            state="enabled"
             className="rounded-full border border-gray-300 h-12 px-4 flex items-center gap-3"
             aria-label="Perfil do usuário"
             data-profile-trigger
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent) => {
               e.stopPropagation();
               setOpen((v) => !v);
             }}
+            iconLeft={<Search size={18} className="text-neutral-500" />}
+            iconRight={<UserCircle2 size={28} className="text-neutral-500" />}
           >
-            <Search size={18} className="text-neutral-500" />
             <Typography component="span" className="text-neutral-700">{userName}</Typography>
-            <UserCircle2 size={28} className="text-neutral-500" />
-          </Button>
+          </ButtonTeste>
           {open ? (
             <ProfileMenu
               name={userName}

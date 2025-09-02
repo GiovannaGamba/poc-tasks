@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../../Utils/Contraktor.png";
-import { Button, Typography } from "../../components";
+import { ButtonTeste, Typography } from "../../components";
 import {
   Home,
   Workflow,
@@ -89,14 +89,16 @@ export function SideBar({ className, width = "w-80", items = defaultItems, activ
       </nav>
 
       <div className="px-6 py-6">
-        <Button
-          variant="secondary"
-          fullWidth={false}
+        <ButtonTeste
+          type="primary"
+          style="filled"
+          state="enabled"
           className="rounded-full w-16 h-16 p-0 flex items-center justify-center shadow-md"
           aria-label="Ação"
+          iconLeft={<Globe size={22} />}
+          showIconRight={false}
         >
-          <Globe size={22} />
-        </Button>
+        </ButtonTeste>
       </div>
     </aside>
   );

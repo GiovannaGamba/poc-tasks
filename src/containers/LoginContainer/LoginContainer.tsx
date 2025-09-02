@@ -1,5 +1,5 @@
 import { useNavigate } from "@tanstack/react-router";
-import { Input, Select, Button, Card, Typography } from "../../components";
+import { Input, Select, ButtonTeste, Card, Typography } from "../../components";
 import Logo from "../../Utils/Contraktor.png";
 
 const enterprises = [
@@ -31,14 +31,16 @@ export function LoginContainer() {
           <Input variant="password" placeholder="Sua senha" />
           <Typography className="text-right text-sm text-neutral-500">Esqueceu a senha?</Typography>
         </div>
-          <Button
-            variant="secondary"
+          <ButtonTeste
+            type="primary"
+            style="filled"
+            state="enabled"
             onClick={() => {
               navigate({ to: "/app" });
             }}
           >
             Login
-          </Button>
+          </ButtonTeste>
         </div>
       </Card>
     </div>

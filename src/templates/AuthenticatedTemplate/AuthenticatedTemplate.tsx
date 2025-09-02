@@ -12,7 +12,7 @@ export function AuthenticatedTemplate({ children }: AuthenticatedTemplateProps) 
     <div className="min-h-screen w-full bg-neutral-50 flex">
       <SideBar onChange={(_, item) => setTitle(item.label)} />
       <div className="flex-1 flex flex-col">
-        <NavBar userName="Nome Sobrenome" title={title} />
+        <NavBar userName="Nome" title={title} />
         <main className="flex-1 p-6">
           {children}
         </main>
