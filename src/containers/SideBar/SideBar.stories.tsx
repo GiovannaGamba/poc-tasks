@@ -1,6 +1,5 @@
 import SideBar from './SideBar';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Home, Settings, Users, FileText } from 'lucide-react';
 
 const meta: Meta<typeof SideBar> = {
   title: 'Containers/SideBar',
