@@ -1,51 +1,63 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getFormulariosItems, createFormularioItem, deleteFormularioItem } from '../../data/formularios';
+import { getFormulariosItems, createFormularioItem, deleteFormularioItem, type FormularioItem, type CreateFormularioData } from '../../services/formularios.service';
 
-// Query keys organizadas
 export const formulariosKeys = {
   root: ['formularios'] as const,
   all: () => [...formulariosKeys.root, 'items'] as const,
-  item: (id: number) => [...formulariosKeys.root, 'item', id] as const,
+  item: (id: string | number) => [...formulariosKeys.root, 'item', id] as const,
 };
 
-// Hook para buscar todos os formulários
 export function useFormulariosItems() {
   return useQuery({
     queryKey: formulariosKeys.all(),
     queryFn: getFormulariosItems,
-    staleTime: 2 * 60 * 1000, // 2 minutos
-    gcTime: 5 * 60 * 1000, // 5 minutos
+    staleTime: 2 * 60 * 1000,
+    gcTime: 5 * 60 * 1000,
   });
 }
 
-// Hook para criar novo formulário
 export function useCreateFormularioItem() {
   const queryClient = useQueryClient();
-  
   return useMutation({
-    mutationFn: createFormularioItem,
-    onSuccess: () => {
-      // Invalida todas as queries relacionadas a formulários
-      queryClient.invalidateQueries({ queryKey: formulariosKeys.root });
+    mutationFn: (data: CreateFormularioData) => createFormularioItem(data),
+    onMutate: async (newItem) => {
+      await queryClient.cancelQueries({ queryKey: formulariosKeys.all() });
+      const previous = queryClient.getQueryData<FormularioItem[]>(formulariosKeys.all());
+      const temp: FormularioItem = { id: `temp-${Date.now()}`, ...newItem } as unknown as FormularioItem;
+      queryClient.setQueryData<FormularioItem[]>(formulariosKeys.all(), (old = []) => [...old, temp]);
+      return { previous, tempId: temp.id };
     },
-    onError: (error) => {
-      console.error('Erro ao criar formulário:', error);
+    onError: (_err, _vars, ctx) => {
+      if (ctx?.previous) queryClient.setQueryData(formulariosKeys.all(), ctx.previous);
+    },
+    onSuccess: (created, _vars, ctx) => {
+      queryClient.setQueryData<FormularioItem[]>(formulariosKeys.all(), (old = []) =>
+        old.map((item) => (item.id === ctx?.tempId ? created : item))
+      );
+    },
+    onSettled: () => {
+      // opcional
+      // queryClient.invalidateQueries({ queryKey: formulariosKeys.root });
     },
   });
 }
 
-// Hook para deletar formulário
 export function useDeleteFormularioItem() {
   const queryClient = useQueryClient();
-  
   return useMutation({
-    mutationFn: deleteFormularioItem,
-    onSuccess: () => {
-      // Invalida todas as queries relacionadas a formulários
-      queryClient.invalidateQueries({ queryKey: formulariosKeys.root });
+    mutationFn: (id: string | number) => deleteFormularioItem(String(id)),
+    onMutate: async (id) => {
+      await queryClient.cancelQueries({ queryKey: formulariosKeys.all() });
+      const previous = queryClient.getQueryData<FormularioItem[]>(formulariosKeys.all());
+      queryClient.setQueryData<FormularioItem[]>(formulariosKeys.all(), (old = []) => old.filter((i) => i.id !== String(id)));
+      return { previous };
     },
-    onError: (error) => {
-      console.error('Erro ao deletar formulário:', error);
+    onError: (_err, _vars, ctx) => {
+      if (ctx?.previous) queryClient.setQueryData(formulariosKeys.all(), ctx.previous);
+    },
+    onSettled: () => {
+      // opcional
+      // queryClient.invalidateQueries({ queryKey: formulariosKeys.root });
     },
   });
 }

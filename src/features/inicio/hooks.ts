@@ -1,51 +1,63 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getInicioItems, createInicioItem, deleteInicioItem } from '../../data/inicio';
+import { getInicioItems, createInicioItem, deleteInicioItem, type InicioItem, type CreateInicioData } from '../../services/inicio.service';
 
-// Query keys organizadas
 export const inicioKeys = {
   root: ['inicio'] as const,
   all: () => [...inicioKeys.root, 'items'] as const,
-  item: (id: number) => [...inicioKeys.root, 'item', id] as const,
+  item: (id: string | number) => [...inicioKeys.root, 'item', id] as const,
 };
 
-// Hook para buscar todos os itens de início
 export function useInicioItems() {
   return useQuery({
     queryKey: inicioKeys.all(),
     queryFn: getInicioItems,
-    staleTime: 2 * 60 * 1000, // 2 minutos
-    gcTime: 5 * 60 * 1000, // 5 minutos
+    staleTime: 2 * 60 * 1000,
+    gcTime: 5 * 60 * 1000,
   });
 }
 
-// Hook para criar novo item
 export function useCreateInicioItem() {
   const queryClient = useQueryClient();
-  
   return useMutation({
-    mutationFn: createInicioItem,
-    onSuccess: () => {
-      // Invalida todas as queries relacionadas a início
-      queryClient.invalidateQueries({ queryKey: inicioKeys.root });
+    mutationFn: (data: CreateInicioData) => createInicioItem(data),
+    onMutate: async (newItem) => {
+      await queryClient.cancelQueries({ queryKey: inicioKeys.all() });
+      const previous = queryClient.getQueryData<InicioItem[]>(inicioKeys.all());
+      const temp: InicioItem = { id: `temp-${Date.now()}`, ...newItem } as unknown as InicioItem;
+      queryClient.setQueryData<InicioItem[]>(inicioKeys.all(), (old = []) => [...old, temp]);
+      return { previous, tempId: temp.id };
     },
-    onError: (error) => {
-      console.error('Erro ao criar item de início:', error);
+    onError: (_err, _vars, ctx) => {
+      if (ctx?.previous) queryClient.setQueryData(inicioKeys.all(), ctx.previous);
+    },
+    onSuccess: (created, _vars, ctx) => {
+      queryClient.setQueryData<InicioItem[]>(inicioKeys.all(), (old = []) =>
+        old.map((item) => (item.id === ctx?.tempId ? created : item))
+      );
+    },
+    onSettled: () => {
+      // opcional: garantir consistência com servidor
+      // queryClient.invalidateQueries({ queryKey: inicioKeys.root });
     },
   });
 }
 
-// Hook para deletar item
 export function useDeleteInicioItem() {
   const queryClient = useQueryClient();
-  
   return useMutation({
-    mutationFn: deleteInicioItem,
-    onSuccess: () => {
-      // Invalida todas as queries relacionadas a início
-      queryClient.invalidateQueries({ queryKey: inicioKeys.root });
+    mutationFn: (id: string | number) => deleteInicioItem(String(id)),
+    onMutate: async (id) => {
+      await queryClient.cancelQueries({ queryKey: inicioKeys.all() });
+      const previous = queryClient.getQueryData<InicioItem[]>(inicioKeys.all());
+      queryClient.setQueryData<InicioItem[]>(inicioKeys.all(), (old = []) => old.filter((i) => i.id !== String(id)));
+      return { previous };
     },
-    onError: (error) => {
-      console.error('Erro ao deletar item de início:', error);
+    onError: (_err, _vars, ctx) => {
+      if (ctx?.previous) queryClient.setQueryData(inicioKeys.all(), ctx.previous);
+    },
+    onSettled: () => {
+      // opcional
+      // queryClient.invalidateQueries({ queryKey: inicioKeys.root });
     },
   });
 }
