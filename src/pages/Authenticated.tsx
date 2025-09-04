@@ -1,7 +1,7 @@
 import { AuthenticatedTemplate } from "../templates/AuthenticatedTemplate/AuthenticatedTemplate";
 import { Typography } from "../components/Typography/Typhography";
 import { Table, CreateModal } from "../components";
-import React, { useState } from "react";
+import { useState } from "react";
 import { 
   useInicioItems, 
   useCreateInicioItem, 
@@ -15,7 +15,7 @@ import {
   type CreateInicioData,
   type CreateWorkflowData,
   type CreateFormularioData,
-} from "../features";
+} from "../../app/features";
 
 type DomainConfig = {
   data: any[] | undefined;

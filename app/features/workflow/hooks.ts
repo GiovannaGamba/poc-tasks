@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getWorkflowItems, createWorkflowItem, deleteWorkflowItem, type WorkflowItem, type CreateWorkflowData } from '../../services/workflow.service';
+import { getWorkflowItems, createWorkflowItem, deleteWorkflowItem } from '../../api/services/workflow.service';
+import type { WorkflowItem, CreateWorkflowData } from '../../types';
 
 export const workflowKeys = {
   root: ['workflow'] as const,

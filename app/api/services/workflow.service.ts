@@ -1,12 +1,5 @@
 import { get, post, del } from './http';
-
-export type WorkflowItem = {
-  id: string;
-  nome: string;
-  status: 'em_andamento' | 'concluido' | 'pendente';
-};
-
-export type CreateWorkflowData = Omit<WorkflowItem, 'id'>;
+import type { WorkflowItem, CreateWorkflowData } from '../../types';
 
 const resource = '/workflow';
 

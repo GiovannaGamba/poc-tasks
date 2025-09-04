@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getInicioItems, createInicioItem, deleteInicioItem, type InicioItem, type CreateInicioData } from '../../services/inicio.service';
+import { getInicioItems, createInicioItem, deleteInicioItem } from '../../api/services/inicio.service';
+import type { InicioItem, CreateInicioData } from '../../types';
 
 export const inicioKeys = {
   root: ['inicio'] as const,

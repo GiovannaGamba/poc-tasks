@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getFormulariosItems, createFormularioItem, deleteFormularioItem, type FormularioItem, type CreateFormularioData } from '../../services/formularios.service';
+import { getFormulariosItems, createFormularioItem, deleteFormularioItem } from '../../api/services/formularios.service';
+import type { FormularioItem, CreateFormularioData } from '../../types';
 
 export const formulariosKeys = {
   root: ['formularios'] as const,

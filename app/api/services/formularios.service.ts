@@ -1,12 +1,5 @@
 import { get, post, del } from './http';
-
-export type FormularioItem = {
-  id: string;
-  nome: string;
-  versao: string;
-};
-
-export type CreateFormularioData = Omit<FormularioItem, 'id'>;
+import type { FormularioItem, CreateFormularioData } from '../../types';
 
 const resource = '/formularios';
 

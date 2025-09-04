@@ -1,12 +1,5 @@
 import { get, post, del } from './http';
-
-export type InicioItem = {
-  id: string;
-  titulo: string;
-  status: 'ativo' | 'inativo' | 'pendente';
-};
-
-export type CreateInicioData = Omit<InicioItem, 'id'>;
+import type { InicioItem, CreateInicioData } from '../../types';
 
 const resource = '/inicio';
 
