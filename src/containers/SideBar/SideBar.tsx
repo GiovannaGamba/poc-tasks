@@ -54,7 +54,7 @@ function SideBarItem({ item, active, onClick }: { item: NavItem; active?: boolea
       onClick={onClick}
     >
       <Icon size={22} className={active ? "text-primary-600" : "text-neutral-500"} />
-      <Typography component="span" className="font-medium">{item.label}</Typography>
+      <Typography component="span" variant="body-2" className="font-medium">{item.label}</Typography>
     </button>
   );
 }

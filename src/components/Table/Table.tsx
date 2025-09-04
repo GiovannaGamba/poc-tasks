@@ -32,7 +32,7 @@ export function Table<T extends { id: string | number }>({
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-12">
-        <Typography className="text-neutral-500">Carregando...</Typography>
+        <Typography variant="body-3" className="text-neutral-500">Carregando...</Typography>
       </div>
     );
   }
@@ -40,7 +40,7 @@ export function Table<T extends { id: string | number }>({
   if (!data || data.length === 0) {
     return (
       <div className="text-center py-12">
-        <Typography className="text-neutral-500 mb-4">{emptyMessage}</Typography>
+        <Typography variant="body-3" className="text-neutral-500 mb-4">{emptyMessage}</Typography>
         {onCreate && (
           <ButtonTeste
             type="primary"

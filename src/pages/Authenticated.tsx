@@ -213,7 +213,7 @@ export function Authenticated() {
   return (
     <AuthenticatedTemplate onDomainChange={handleDomainChange}>
       <div className="max-w-7xl mx-auto">
-        <Typography component="h2" className="text-2xl font-bold mb-6 capitalize">
+        <Typography component="h2" variant="heading-2" className="mb-6 capitalize">
           {activeDomain}
         </Typography>
         

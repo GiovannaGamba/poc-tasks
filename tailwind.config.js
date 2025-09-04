@@ -115,7 +115,82 @@ export default {
           700: '#8548B0',
           900: '#4F2B68',
         },
-      }
+      },
+      fontFamily: {
+        // Fonte principal: Inter
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'inter': ['Inter', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        // Sistema de tipografia baseado no Inter
+        'heading-1': ['36px', { 
+          lineHeight: '48px', 
+          fontWeight: '600',
+          letterSpacing: '0em'
+        }],
+        'heading-2': ['24px', { 
+          lineHeight: '32px', 
+          fontWeight: '600',
+          letterSpacing: '0em'
+        }],
+        'heading-3': ['18px', { 
+          lineHeight: '24px', 
+          fontWeight: '600',
+          letterSpacing: '0em'
+        }],
+        'title-1': ['16px', { 
+          lineHeight: '22px', 
+          fontWeight: '600',
+          letterSpacing: '0em'
+        }],
+        'title-2': ['16px', { 
+          lineHeight: '22px', 
+          fontWeight: '400',
+          letterSpacing: '0em'
+        }],
+        'body-1': ['14px', { 
+          lineHeight: '20px', 
+          fontWeight: '700',
+          letterSpacing: '0.2%'
+        }],
+        'body-2': ['14px', { 
+          lineHeight: '20px', 
+          fontWeight: '500',
+          letterSpacing: '0.2%'
+        }],
+        'body-3': ['14px', { 
+          lineHeight: '20px', 
+          fontWeight: '400',
+          letterSpacing: '0.2%'
+        }],
+        'caption-1': ['12px', { 
+          lineHeight: '18px', 
+          fontWeight: '700',
+          letterSpacing: '0.2%'
+        }],
+        'caption-2': ['12px', { 
+          lineHeight: '18px', 
+          fontWeight: '500',
+          letterSpacing: '0.2%'
+        }],
+        'detail-1': ['10px', { 
+          lineHeight: '16px', 
+          fontWeight: '700',
+          letterSpacing: '0.3%'
+        }],
+        'detail-2': ['10px', { 
+          lineHeight: '16px', 
+          fontWeight: '500',
+          letterSpacing: '0.3%'
+        }],
+      },
+      fontWeight: {
+        // Pesos específicos para Inter
+        'regular': '400',
+        'medium': '500',
+        'semibold': '600',
+        'bold': '700',
+      },
     },
   },
   plugins: [],

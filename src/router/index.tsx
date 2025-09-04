@@ -1,7 +1,7 @@
 import { createRootRoute, createRoute, createRouter, RouterProvider } from '@tanstack/react-router'
 import { Login } from '../pages/Login'
 import { Authenticated } from '../pages/Authenticated'
-import Colors from '../pages/Colors'
+import { Colors } from '../pages/Colors'
 
 const rootRoute = createRootRoute()
 

@@ -23,8 +23,8 @@ export function ProfileMenu({ name, email, onManage, onLogout }: ProfileMenuProp
               </button>
             </div>
             <div className="text-center">
-              <Typography variant="h2" className="!text-2xl !font-semibold">Olá, {name.split(" ")[0]}</Typography>
-              <Typography className="text-neutral-500">{email}</Typography>
+              <Typography variant="heading-3" component="h3">Olá, {name.split(" ")[0]}</Typography>
+              <Typography variant="body-3" className="text-neutral-500">{email}</Typography>
             </div>
             <ButtonTeste
               type="primary"

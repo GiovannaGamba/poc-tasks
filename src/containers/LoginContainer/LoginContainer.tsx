@@ -15,21 +15,21 @@ export function LoginContainer() {
         <div className="flex flex-col gap-8">
         <div className="flex flex-col items-center gap-3">
           <img src={Logo} alt="Contraktor" className="h-30" />
-          <Typography variant="h1" className="!text-3xl !font-semibold text-center">Bem vindo de volta!</Typography>
+          <Typography variant="heading-1" component="h1" className="text-center">Bem vindo de volta!</Typography>
         </div>
 
         <div className="flex flex-col gap-2">
-          <Typography component="label" className="text-neutral-700 font-medium">Email</Typography>
+          <Typography component="label" variant="body-2" className="text-neutral-700 font-medium">Email</Typography>
           <Input variant="email" placeholder="nome.sobrenome@contraktor.com.br" />
         </div>
         <div className="flex flex-col gap-2">
-          <Typography component="label" className="text-neutral-700 font-medium">Empresa</Typography>
+          <Typography component="label" variant="body-2" className="text-neutral-700 font-medium">Empresa</Typography>
           <Select variant="enterprise" options={enterprises} placeholder="Contraktor - Produto" />
         </div>
         <div className="flex flex-col gap-2">
-          <Typography component="label" className="text-neutral-700 font-medium">Senha</Typography>
+          <Typography component="label" variant="body-2" className="text-neutral-700 font-medium">Senha</Typography>
           <Input variant="password" placeholder="Sua senha" />
-          <Typography className="text-right text-sm text-neutral-500">Esqueceu a senha?</Typography>
+          <Typography variant="caption-2" className="text-right text-neutral-500">Esqueceu a senha?</Typography>
         </div>
           <ButtonTeste
             type="primary"

@@ -37,8 +37,8 @@ export function NavBar({ userName, title = "Olá", onNewChange, newOptions = def
     <header className="w-full bg-white border-b border-gray-200">
       <div className="mx-auto max-w-screen-2xl px-6 py-4 flex items-center justify-between gap-4">
         <div>
-          <Typography variant="h2" className="!text-2xl !font-semibold">{title}</Typography>
-          <Typography className="text-neutral-500">Boas-vindas a plataforma CLM Contraktor.</Typography>
+          <Typography variant="heading-2" component="h2">{title}</Typography>
+          <Typography variant="body-3" className="text-neutral-500">Boas-vindas a plataforma CLM Contraktor.</Typography>
         </div>
 
         <div className="flex items-center gap-4">
@@ -66,7 +66,7 @@ export function NavBar({ userName, title = "Olá", onNewChange, newOptions = def
             iconLeft={<Search size={18} className="text-neutral-500" />}
             iconRight={<UserCircle2 size={28} className="text-neutral-500" />}
           >
-            <Typography component="span" className="text-neutral-700">{userName}</Typography>
+            <Typography component="span" variant="body-2" className="text-neutral-700">{userName}</Typography>
           </ButtonTeste>
           {open ? (
             <ProfileMenu
