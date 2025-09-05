@@ -1,12 +1,11 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getInicioItems, createInicioItem, deleteInicioItem, updateInicioItem, getInicioItem } from '../../api/services/inicio.service';
-import { useApiError } from '../../hooks/useApiError';
-import type { InicioItem, CreateInicioData } from '../../types';
+import { getInicioItems, createInicioItem, deleteInicioItem } from './services/inicio.service';
+import { useApiError } from '../../../shared/hooks/useApiError';
+import type { InicioItem, CreateInicioData } from './types/inicio.types';
 
 export const inicioKeys = {
   root: ['inicio'] as const,
   all: () => [...inicioKeys.root, 'items'] as const,
-  item: (id: string | number) => [...inicioKeys.root, 'item', id] as const,
 };
 
 export function useInicioItems() {
@@ -24,16 +23,6 @@ export function useInicioItems() {
       }
       return failureCount < 3;
     },
-  });
-}
-
-export function useInicioItem(id: string | number) {
-  return useQuery({
-    queryKey: inicioKeys.item(id),
-    queryFn: () => getInicioItem(id),
-    enabled: !!id,
-    staleTime: 2 * 60 * 1000,
-    gcTime: 5 * 60 * 1000,
   });
 }
 
@@ -65,23 +54,6 @@ export function useCreateInicioItem() {
     },
     onSettled: () => {
       // Garantir consistência com servidor
-      queryClient.invalidateQueries({ queryKey: inicioKeys.all() });
-    },
-  });
-}
-
-export function useUpdateInicioItem() {
-  const queryClient = useQueryClient();
-  const { getErrorMessage } = useApiError();
-  
-  return useMutation({
-    mutationFn: ({ id, data }: { id: string | number; data: Partial<CreateInicioData> }) => 
-      updateInicioItem(id, data),
-    onError: (error) => {
-      console.error('Erro ao atualizar item:', getErrorMessage(error));
-    },
-    onSuccess: (updatedItem) => {
-      queryClient.setQueryData(inicioKeys.item(updatedItem.id), updatedItem);
       queryClient.invalidateQueries({ queryKey: inicioKeys.all() });
     },
   });

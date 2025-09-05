@@ -1,2 +1,3 @@
 export * from './hooks';
-export type { InicioItem, CreateInicioData } from '../../types';
+export * from './services/inicio.service';
+export type { InicioItem, CreateInicioData } from './types/inicio.types';

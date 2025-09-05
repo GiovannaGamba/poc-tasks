@@ -1,2 +1,3 @@
 export * from './hooks';
-export type { WorkflowItem, CreateWorkflowData } from '../../types';
+export * from './services/workflow.service';
+export type { WorkflowItem, CreateWorkflowData } from './types/workflow.types';

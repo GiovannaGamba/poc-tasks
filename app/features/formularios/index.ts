@@ -1,2 +1,3 @@
 export * from './hooks';
-export type { FormularioItem, CreateFormularioData } from '../../types';
+export * from './services/formularios.service';
+export type { FormularioItem, CreateFormularioData } from './types/formularios.types';
