@@ -9,7 +9,10 @@ export function useInicioItems() {
 }
 export function useCreateInicioItem() {
   const qc = useQueryClient();
-  return useMutation({ mutationFn: createInicioItem, onSuccess: () => qc.invalidateQueries({ queryKey: ['inicio'] }) });
+  return useMutation({ 
+    mutationFn: createInicioItem, 
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['inicio'] }) 
+  });
 }
 export function useDeleteInicioItem() {
   const qc = useQueryClient();
@@ -22,7 +25,10 @@ export function useWorkflowItems() {
 }
 export function useCreateWorkflowItem() {
   const qc = useQueryClient();
-  return useMutation({ mutationFn: createWorkflowItem, onSuccess: () => qc.invalidateQueries({ queryKey: ['workflow'] }) });
+  return useMutation({ 
+    mutationFn: createWorkflowItem, 
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['workflow'] }) 
+  });
 }
 export function useDeleteWorkflowItem() {
   const qc = useQueryClient();
@@ -35,7 +41,10 @@ export function useFormulariosItems() {
 }
 export function useCreateFormularioItem() {
   const qc = useQueryClient();
-  return useMutation({ mutationFn: createFormularioItem, onSuccess: () => qc.invalidateQueries({ queryKey: ['formularios'] }) });
+  return useMutation({ 
+    mutationFn: createFormularioItem, 
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['formularios'] }) 
+  });
 }
 export function useDeleteFormularioItem() {
   const qc = useQueryClient();

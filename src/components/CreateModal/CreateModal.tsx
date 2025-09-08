@@ -77,7 +77,10 @@ export function CreateModal({
                 <Input
                   type={field.type}
                   value={formData[field.name] || ''}
-                  onChange={(e) => handleChange(field.name, e.target.value)}
+                  onChange={(e) => {
+                    const value = field.type === 'number' ? Number(e.target.value) : e.target.value;
+                    handleChange(field.name, value);
+                  }}
                   placeholder={field.placeholder || `Digite ${field.label.toLowerCase()}`}
                 />
               )}
