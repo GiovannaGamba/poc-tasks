@@ -3,19 +3,13 @@ import { Typography } from "../components/Typography/Typhography";
 import { Table, CreateModal } from "../components";
 import { useState } from "react";
 import { 
-  useInicioItems, 
-  useCreateInicioItem, 
-  useDeleteInicioItem,
-  useWorkflowItems,
-  useCreateWorkflowItem,
-  useDeleteWorkflowItem,
-  useFormulariosItems,
-  useCreateFormularioItem,
-  useDeleteFormularioItem,
-  type CreateInicioData,
-  type CreateWorkflowData,
-  type CreateFormularioData,
-} from "../../app/features";
+  useInicioItems, useCreateInicioItem, useDeleteInicioItem,
+  useWorkflowItems, useCreateWorkflowItem, useDeleteWorkflowItem,
+  useFormulariosItems, useCreateFormularioItem, useDeleteFormularioItem,
+} from "../api/hooks";
+import type { CreateInicioData } from "../api/inicio.service";
+import type { CreateWorkflowData } from "../api/workflow.service";
+import type { CreateFormularioData } from "../api/formularios.service";
 
 type DomainConfig = {
   data: any[] | undefined;
